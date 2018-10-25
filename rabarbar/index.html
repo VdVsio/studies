@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="pl">
+<head>
+    <meta charset="utf-8">
+    <title>System Uniwersytecki</title>
+    
+    <!--[if lt IE 9]>
+    <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+   
+   <link rel="stylesheet" href="css/form.css">
+</head>
+<body>
+
+<p>
+    <h2>Grade Average Calculator</h2>
+    <h3>Please Enter Your Grade For Each Section</h3>
+    <TABLE BORDER=2 CELLSPACING=2 CELLPADDING=2>
+
+    <tr>
+    <td>Type</td>
+    <td>Weight</td>
+    <td>Grade</td>
+    </tr>
+
+    <tr>
+    <td>Homework</td>
+    <td>25%</td>
+    <td><input type="text" id="homework" size=2 value=""></td>
+    </tr>
+
+    <tr>
+    <td>Labs</td>
+    <td>20%</td>
+    <td><input type="text" id="labs" size=2 value=""></td>
+    </tr>
+
+    <tr>
+    <td>Midterm</td>
+    <td>25%</td>
+    <td><input type="text" id="midterm" size=2 value=""></td>
+    </tr>
+
+    <tr>
+    <td>Final Exam</td>
+    <td>30%</td>
+    <td><input type="text" id="finals" size=2 value=""></td>
+    </tr>
+
+    <br><br>
+</p>
+    <input type="button" value="Calculate Your Grade"
+        onclick="calculator()">
+
+    <hr>
+    <div id="outputDiv" style="height: 50px; width: 100%;"></div>
+
+    <script type="text/javascript">
+
+        function calculator()
+        {
+            var grade1=parseFloat(document.getElementById('homework').value*0.25);
+            var grade2=parseFloat(document.getElementById('labs').value*0.20);
+            var grade3=parseFloat(document.getElementById('midterm').value*0.25);
+            var grade4=parseFloat(document.getElementById('finals').value*0.30);
+            var total=grade1+grade2+grade3+grade4;
+
+            var display=document.getElementById('outputDiv');
+
+            display.innerHTML='Your Final Grade Is: ' +total;
+        }
+    </script>
+ </BODY>
+ </html>
+ 

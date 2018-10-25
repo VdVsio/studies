@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="pl">
+<head>
+    <meta charset="utf-8">
+    <title>Dodaj studenta</title>
+    <!--[if lt IE 9]>
+    <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link rel="stylesheet" href="css/form.css">
+</head>
+<body>
+    <!-- tasks.html -->
+	<form action="#" method="post" id="theForm">
+	    <fieldset><legend>Dodaj studenta:</legend>
+<div id="container">
+	<div id="label">
+		<label for="student">Imie</label></br>
+		<label for="student">Nazwisko</label></br>
+		<label for="student" id="kiero">Kierunek</label>
+	</div>
+	<div id="input">
+		<input type="text" name="student" id="imie" placeholder="imie" required></br>
+		<input type="text" name="student" id="nazwisko" placeholder="nazwisko" required></br>
+		<select name="student" id="kierunek" >
+				<option value="Informatyka">Informatyka</option>
+				<option value="Zarz¹dzanie">Zarzadzanie</option>
+				<option value="Logistyka">Logistyka</option>
+				<option value="Teleinformatyka">Teleinformatyka</option>
+			</select>
+	</div>
+</div>
+</br>
+	        <input type="submit" value="Dodaj" id="submit">
+	  
+	    </fieldset>
+		<div id="output"></div>
+		
+	</form>
+    <script src="js/obiekt.js"></script>
+</body>
+</html>
