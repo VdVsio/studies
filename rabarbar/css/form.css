@@ -16,6 +16,7 @@ form {
 table {
     border: 3px solid #993f3f;
 	margin: 0 auto;
+	background-color: white;
 }
 tr, td {
 	text-align: center;
@@ -67,4 +68,15 @@ p {
 	color: #7a4512;;
 }
 
-
+#calc_tab table{
+	border: 2px solid black;
+	margin: 10px;
+	color: black;
+	background-color: white;
+}
+#calc_tab th, tr, td {
+	text-align: center;
+	font-size:13px;
+    padding: 5px;
+	border: 1px solid black;
+}

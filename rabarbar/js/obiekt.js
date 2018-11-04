@@ -4,7 +4,7 @@
 var students = [];
 var ocena = 0;
 
-months = ["Sty", "Lut", "Mar", "Kwie", "Maj", "Czerw", "Lip", "Sie", "Wrze", "Paź", "Lis", "Gru"];
+
 
 function addStudent() {
 'use strict';
@@ -13,6 +13,7 @@ function addStudent() {
 	var getImie = document.getElementById('imie').value;
 	var getNazwisko = document.getElementById('nazwisko').value;
 	var getKierunek= document.getElementById('kierunek').value;
+	
 	
 	//zypytania do pola wynikowego
 	var output = document.getElementById('output');
@@ -27,6 +28,7 @@ if(getImie&& getNazwisko && getKierunek){
 	var imier = wielkaLitera(getImie);
 	var nazwi = wielkaLitera(getNazwisko);
 	var kier = getKierunek;
+	
 
 	var student = {
 		imie : imier,
@@ -34,6 +36,9 @@ if(getImie&& getNazwisko && getKierunek){
 		kierun: kier,
                 grade: ocena,
 		dateD: new Date(),
+		mies: function(){
+			return this.dateD.getMonth()+1;
+		}
 		
 	};
 	
@@ -82,21 +87,55 @@ if(getImie&& getNazwisko && getKierunek){
         {
             message += '<tr style="padding: 2px">'
 			+'<td>' + (i+1) + '.' + '</td>'
-			+'<td><a href="#">' +students[i].imie + ' ' + students[i].nazw + '</a></td>'
+			+'<td id="nam" onclick="show()" value='+i+'>' +students[i].imie + ' ' + students[i].nazw + '</td>'
 			+'<td>' +students[i].kierun + '</td>'
                         +'<td>' +students[i].grade + '</td>' 
 			+'<td><b>' +students[i].dateD.getDate() +'-'
-						+students[i].dateD.getMonth() +'-'
+						+students[i].mies() +'-' 
+						
+//getMonth() to tablica miesiecy 0-11, i wyswietla  mmiesiac wstecz, metoda+1 nie działa, wiec zdecydowalem sie zrobic funkcje wewn. obiektu
+						
 						+students[i].dateD.getFullYear() +' ('
 						+students[i].dateD.getHours() +':'
 						+students[i].dateD.getMinutes() +':'
-						+students[i].dateD.getSeconds() 
+						+students[i].dateD.getSeconds()
 			+ ')</b></td>'
 			+'<tr>';
+			
         }
         
+		
+		
         message += '</tbody></table>'
-        +'<div id="calc_tab" style="margin: 10px 20px;width:100px; height:100px; background-color:rgba(246, 245, 244, 1);"> </div>' ;
+		+'<div id="calc_tab" style="display: none;margin: 10px 20px;min-width:100px; min-height:100px; max-width: 190px; padding: 2px; ">' 
+		+'<h4>Edycja oceny studenta: ' + '</h4>'
+		+'<table><thead>'
+		+ '<tr>'
+			+'<th>Typ</th>'
+			+'<th>Waga</th>'
+			+'<th>Ocena</th>'
+		+'</tr></thead><tbody>'
+		+ '<tr>'
+			+'<td>Zad dom.</td>'
+			+'<td>25%</td>'
+			+'<td><input type="text" id="homework" size=2 value=""></td>'
+		+'</tr>'
+		+ '<tr>'
+			+'<td>Laborki</td>'
+			+'<td>20%</td>'
+			+'<td><input type="text" id="homework" size=2 value=""></td>'
+		+'</tr>'
+		+ '<tr>'
+			+'<td>Polrocze</td>'
+			+'<td>25%</td>'
+			+'<td><input type="text" id="homework" size=2 value=""></td>'
+		+'</tr>'
+		+ '<tr>'
+			+'<td>Egzamin</td>'
+			+'<td>30%</td>'
+			+'<td><input type="text" id="homework" size=2 value=""></td>'
+		+'</tr>'
+		+'</tbody></table></div>';
 		output.innerHTML = message;
 
 }//end of IF
@@ -110,6 +149,14 @@ if(getImie&& getNazwisko && getKierunek){
     // Return false to prevent submission:
     return false
   } 
+function show() {
+    var x = document.getElementById("calc_tab");
+    if (x.style.display === "none") {
+        x.style.display = "block";
+    } else {
+        x.style.display = "none";
+    }
+} 
 function wielkaLitera(string)
 {
     return string.charAt(0).toUpperCase() + string.slice(1).toLowerCase();
