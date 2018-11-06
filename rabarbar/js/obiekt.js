@@ -81,7 +81,14 @@ if(getImie&& getNazwisko && getKierunek){
         }
 		
 		//update
-		message = '<h2>Lista studentów:</h2><table><thead><tr>' 
+		message = '<h2>Lista studentów:</h2>'
+		+'<div id="sort_box"><label for="sortowanie">Sortuj: </label><select name="sortowanie" id="sort">'
+		+'<option selected></option>'
+		+'<option value="asc">Rosnaco</option>'
+		+'<option value="desc">Malejaco</option>'
+		+'</select>'
+		+'<input type="button" value=">>"></div>'
+		+'<table><thead><tr>' 
 		+ '<th>Lp.</th><th>Imie i Nazwisko</th><th>Kierunek</th><th>Ocena</th><th>Data dodania</th>' 
 		+ '</tr></thead><tbody>';
         
@@ -123,7 +130,7 @@ if(getImie&& getNazwisko && getKierunek){
     // Return false to prevent submission:
     return false
   } 
-
+//------------------------------- F U N C T I O N S----------------------------
 function show(id) {
     var x = document.getElementById("calc_tab");
     if (x.style.display === "none") {
