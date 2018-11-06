@@ -14,8 +14,8 @@ function addStudent() {
 	var getNazwisko = document.getElementById('nazwisko').value;
 	var getKierunek= document.getElementById('kierunek').value;
 	
-	var persona = null;
-	var ocena_id = null;
+	var persona = null; //zmienna przechowująca indeks edytowanejoceny w rekordzie
+	var ocena_id = null; //zmienna ktora otrzymuje wartosc id pola ocena edytowanego rekordu
 
 	//zypytania do pola wynikowego
 	var output = document.getElementById('output');
@@ -136,8 +136,7 @@ function show(id) {
     }
 }
 
-function calculator()
-        {
+function calculator(){
             var grade1=parseFloat(document.getElementById('homework').value*0.25);
             var grade2=parseFloat(document.getElementById('labs').value*0.20);
             var grade3=parseFloat(document.getElementById('midterm').value*0.25);
@@ -147,10 +146,9 @@ function calculator()
             var display=document.getElementById(ocena_id);
 
             display.innerHTML=total;
-        }
+}
 
-function wielkaLitera(string)
-{
+function wielkaLitera(string){
     return string.charAt(0).toUpperCase() + string.slice(1).toLowerCase();
 } 
 
