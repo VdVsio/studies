@@ -34,6 +34,37 @@
 	  
 	    </fieldset>
 		<div id="output"></div>
+		<div id="calc_tab" style="display: none;margin: 10px 20px;min-width:100px; min-height:100px; max-width: 190px; padding: 2px; "> 
+		<h4>Edycja oceny studenta: <p id="personal">Test</p></h4>
+		<table><thead>
+		<tr>
+			<th>Typ</th>
+			<th>Waga</th>
+			<th>Ocena</th>
+		</tr></thead><tbody>
+		<tr>
+			<td>Zad dom.</td>
+			<td>25%</td>
+			<td><input type="text" id="homework" size=2 value=""></td>
+		</tr>
+		<tr>
+			<td>Laborki</td>
+			<td>20%</td>
+			<td><input type="text" id="labs" size=2 value=""></td>
+		</tr>
+		<tr>
+			<td>Polrocze</td>
+			<td>25%</td>
+			<td><input type="text" id="midterm" size=2 value=""></td>
+		</tr>
+		<tr>
+			<td>Egzamin</td>
+			<td>30%</td>
+			<td><input type="text" id="finals" size=2 value=""></td>
+		</tr>
+		</tbody></table>
+		<input type="button" value="Oblicz ocene!"
+        onclick="calculator()"></div>
 		
 	</form>
     <script src="js/obiekt.js"></script>

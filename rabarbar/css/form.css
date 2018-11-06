@@ -31,13 +31,7 @@ h1 {
 	margin-bottom:8px;
 }
 
-p {
-	font-size:11px;
-	color:#666666;
-	margin-bottom:20px;
-	border-bottom:solid 1px #BFBD9F;
-	padding-bottom:10px;
-}
+
 
 #submit {
 	clear:both;
@@ -79,4 +73,10 @@ p {
 	font-size:13px;
     padding: 5px;
 	border: 1px solid black;
+}
+#personal p{
+	font-size:15px;
+	color:#111;
+	margin-bottom:20px;
+	padding-bottom:10px;
 }

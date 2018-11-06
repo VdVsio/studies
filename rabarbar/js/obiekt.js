@@ -14,7 +14,9 @@ function addStudent() {
 	var getNazwisko = document.getElementById('nazwisko').value;
 	var getKierunek= document.getElementById('kierunek').value;
 	
-	
+	var persona = null;
+	var ocena_id = null;
+
 	//zypytania do pola wynikowego
 	var output = document.getElementById('output');
 	
@@ -87,9 +89,9 @@ if(getImie&& getNazwisko && getKierunek){
         {
             message += '<tr style="padding: 2px">'
 			+'<td>' + (i+1) + '.' + '</td>'
-			+'<td id="nam" onclick="show()" value='+i+'>' +students[i].imie + ' ' + students[i].nazw + '</td>'
+			+'<td id=' + i +' onclick="show(this.id)" value='+i+'>' +students[i].imie + ' ' + students[i].nazw + '</td>'
 			+'<td>' +students[i].kierun + '</td>'
-                        +'<td>' +students[i].grade + '</td>' 
+                        +'<td id="grade'+ i+'">' +students[i].grade + '</td>' 
 			+'<td><b>' +students[i].dateD.getDate() +'-'
 						+students[i].mies() +'-' 
 						
@@ -107,35 +109,7 @@ if(getImie&& getNazwisko && getKierunek){
 		
 		
         message += '</tbody></table>'
-		+'<div id="calc_tab" style="display: none;margin: 10px 20px;min-width:100px; min-height:100px; max-width: 190px; padding: 2px; ">' 
-		+'<h4>Edycja oceny studenta: ' + '</h4>'
-		+'<table><thead>'
-		+ '<tr>'
-			+'<th>Typ</th>'
-			+'<th>Waga</th>'
-			+'<th>Ocena</th>'
-		+'</tr></thead><tbody>'
-		+ '<tr>'
-			+'<td>Zad dom.</td>'
-			+'<td>25%</td>'
-			+'<td><input type="text" id="homework" size=2 value=""></td>'
-		+'</tr>'
-		+ '<tr>'
-			+'<td>Laborki</td>'
-			+'<td>20%</td>'
-			+'<td><input type="text" id="homework" size=2 value=""></td>'
-		+'</tr>'
-		+ '<tr>'
-			+'<td>Polrocze</td>'
-			+'<td>25%</td>'
-			+'<td><input type="text" id="homework" size=2 value=""></td>'
-		+'</tr>'
-		+ '<tr>'
-			+'<td>Egzamin</td>'
-			+'<td>30%</td>'
-			+'<td><input type="text" id="homework" size=2 value=""></td>'
-		+'</tr>'
-		+'</tbody></table></div>';
+		+'';
 		output.innerHTML = message;
 
 }//end of IF
@@ -149,18 +123,42 @@ if(getImie&& getNazwisko && getKierunek){
     // Return false to prevent submission:
     return false
   } 
-function show() {
+
+function show(id) {
     var x = document.getElementById("calc_tab");
     if (x.style.display === "none") {
+    	persona = id;
         x.style.display = "block";
+        wyswImie();
     } else {
         x.style.display = "none";
+        persona=null;
     }
-} 
+}
+
+function calculator()
+        {
+            var grade1=parseFloat(document.getElementById('homework').value*0.25);
+            var grade2=parseFloat(document.getElementById('labs').value*0.20);
+            var grade3=parseFloat(document.getElementById('midterm').value*0.25);
+            var grade4=parseFloat(document.getElementById('finals').value*0.30);
+            var total=grade1+grade2+grade3+grade4;
+
+            var display=document.getElementById(ocena_id);
+
+            display.innerHTML=total;
+        }
+
 function wielkaLitera(string)
 {
     return string.charAt(0).toUpperCase() + string.slice(1).toLowerCase();
-}  
+} 
+
+function wyswImie(){
+	document.getElementById('personal').innerHTML = students[persona].imie 
+	+ ' '+ students[persona].nazw;
+	ocena_id = 'grade' + persona;
+} 
  // End of addTask() function.
 
 // Initial setup:
