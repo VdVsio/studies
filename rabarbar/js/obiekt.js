@@ -149,7 +149,11 @@ function calculator(){
             var grade3=parseFloat(document.getElementById('midterm').value*0.25);
             var grade4=parseFloat(document.getElementById('finals').value*0.30);
             var total=grade1+grade2+grade3+grade4;
+<<<<<<< HEAD
 
+=======
+			students[persona].grade = total;
+>>>>>>> nowe rzeczy
             var display=document.getElementById(ocena_id);
 
             display.innerHTML=total;
