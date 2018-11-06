@@ -156,7 +156,7 @@ function wielkaLitera(string)
 
 function wyswImie(){
 	document.getElementById('personal').innerHTML = students[persona].imie 
-	+ ' '+ students[persona].nazw;
+	+ ' '+ students[persona].nazw + ' (' + students[persona].kierun +')';
 	ocena_id = 'grade' + persona;
 } 
  // End of addTask() function.
